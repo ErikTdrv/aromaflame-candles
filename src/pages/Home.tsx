@@ -96,7 +96,11 @@ export function Home() {
               Разгледай колекцията →
             </Link>
           </div>
-          <div className="order-1 aspect-square rounded-2xl bg-[radial-gradient(circle_at_30%_30%,#e8b98a,#954f21)] sm:order-2" />
+          <img
+            src="/images/products/basket-mixed.jpg"
+            alt="Ръчно изработен букет от восъчни цветя на AromaFlame Candles"
+            className="order-1 aspect-square w-full rounded-2xl object-cover sm:order-2"
+          />
         </div>
       </section>
 
