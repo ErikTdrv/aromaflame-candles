@@ -1,4 +1,4 @@
-import { X, Minus, Plus, Trash2 } from "lucide-react";
+import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { ProductArt } from "./ProductArt";
 import { formatPrice } from "../format";
@@ -38,13 +38,20 @@ export function CartDrawer({
 
         <div className="flex-1 overflow-y-auto p-5">
           {items.length === 0 ? (
-            <p className="mt-10 text-center text-ink-soft">
-              Количката ви е празна.
-            </p>
+            <div className="mt-16 flex flex-col items-center gap-3 text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-cream-dark">
+                <ShoppingBag className="h-7 w-7 text-ink-soft" strokeWidth={1.5} />
+              </div>
+              <p className="text-ink-soft">Количката ви е празна.</p>
+            </div>
           ) : (
             <ul className="flex flex-col gap-4">
-              {items.map((item) => (
-                <li key={item.product.id} className="flex gap-3">
+              {items.map((item, i) => (
+                <li
+                  key={item.product.id}
+                  className="flex gap-3 [animation:fade-up_300ms_ease-out_backwards]"
+                  style={{ animationDelay: `${i * 60}ms` }}
+                >
                   <ProductArt
                     product={item.product}
                     className="h-20 w-20 shrink-0 rounded-lg"

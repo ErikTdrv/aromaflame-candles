@@ -12,6 +12,8 @@ export const products: Product[] = [
       "Богат букет от ръчно оформени восъчни цветя в розово, оранжево и лилаво, подреден в елегантна кутия с дръжка и декориран със сухи метлички. Универсален подарък за всеки повод.",
     accent: ["#f0c9a0", "#c97c4b"],
     image: "/images/products/basket-mixed.jpg",
+    occasion: "Универсален",
+    badge: "Любимо",
   },
   {
     id: "rozhden-den",
@@ -24,6 +26,7 @@ export const products: Product[] = [
       "Топла есенна палитра от восъчни цветя в прасковено и бежово, увенчана със златен надпис „Happy Birthday“. Перфектен подарък за рожден ден.",
     accent: ["#e8b98a", "#a8451f"],
     image: "/images/products/birthday-box.jpg",
+    occasion: "Рожден ден",
   },
   {
     id: "uspeh-abiturient",
@@ -36,6 +39,7 @@ export const products: Product[] = [
       "Нежен розов букет от восъчни цветя с декоративна пеперуда и миниатюрна абитуриентска шапка. Специален подарък за завършване.",
     accent: ["#f0c9d1", "#c15c72"],
     image: "/images/products/graduation-box.jpg",
+    occasion: "Абитуриент",
   },
   {
     id: "abiturientska-vaza",
@@ -48,6 +52,7 @@ export const products: Product[] = [
       "Елегантна композиция от бели и розови восъчни цветя, поставена в керамична ваза с декоративна диплома и пискюл. Запомнящ се подарък за абитуриент.",
     accent: ["#f5e6c8", "#d9a441"],
     image: "/images/products/graduation-vase.jpg",
+    occasion: "Абитуриент",
   },
   {
     id: "rozova-naslada",
@@ -60,5 +65,7 @@ export const products: Product[] = [
       "Компактен букет от розови и бели восъчни рози, подреден в декоративна кутия с флорални мотиви. Идеален за спалня или тоалетка.",
     accent: ["#e8b9d1", "#a8457a"],
     image: "/images/products/rose-tin.jpg",
+    occasion: "Романтичен",
+    badge: "Ново",
   },
 ];

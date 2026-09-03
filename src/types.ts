@@ -8,6 +8,8 @@ export interface Product {
   description: string;
   accent: [string, string];
   image: string;
+  occasion: string;
+  badge?: string;
 }
 
 export interface CartItem {

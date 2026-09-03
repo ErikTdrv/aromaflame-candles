@@ -24,7 +24,7 @@ export function ProductArt({
           src={product.image}
           alt={product.name}
           onError={() => setImgFailed(true)}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:scale-110"
           loading="lazy"
         />
       )}
