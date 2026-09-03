@@ -24,7 +24,7 @@ export function Navbar({ onCartClick }: { onCartClick: () => void }) {
         <Link to="/" className="flex items-center gap-2">
           <Flame className="h-6 w-6 text-amber-dark" strokeWidth={1.5} />
           <span className="font-display text-2xl font-semibold text-ink">
-            Wick &amp; Bloom
+            AromaFlame Candles
           </span>
         </Link>
 

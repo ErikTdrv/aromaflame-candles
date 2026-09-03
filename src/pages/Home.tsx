@@ -42,7 +42,7 @@ export function Home() {
             <br /> by hand, with care.
           </h1>
           <p className="max-w-xl text-lg text-ink-soft">
-            Every Wick &amp; Bloom candle starts as a small idea and ends as
+            Every AromaFlame candle starts as a small idea and ends as
             hours of warm, quiet light. Made with 100% soy wax and thoughtful
             scent blends — nothing rushed, nothing mass-produced.
           </p>
@@ -82,7 +82,7 @@ export function Home() {
               A craft built one candle at a time
             </h2>
             <p className="text-ink-soft">
-              Wick &amp; Bloom started at a kitchen table with a pot of melted
+              AromaFlame Candles started at a kitchen table with a pot of melted
               wax and a lot of trial and error. Today, every candle is still
               poured by hand — tested for scent, burn, and quality before it
               ever reaches you. It's a small, personal business built on

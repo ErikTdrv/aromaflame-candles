@@ -99,7 +99,7 @@ export function CartDrawer({
               </span>
             </div>
             <a
-              href={`mailto:hello@wickandbloom.com?subject=${encodeURIComponent(
+              href={`mailto:hello@aromaflamecandles.com?subject=${encodeURIComponent(
                 "Candle order"
               )}&body=${encodeURIComponent(
                 "Hi! I'd like to order:\n\n" +

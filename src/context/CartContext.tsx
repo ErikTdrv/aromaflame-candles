@@ -7,7 +7,7 @@ import {
 } from "react";
 import type { CartItem, Product } from "../types";
 
-const STORAGE_KEY = "wick-and-bloom-cart";
+const STORAGE_KEY = "aromaflame-cart";
 
 interface CartContextValue {
   items: CartItem[];

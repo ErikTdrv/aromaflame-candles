@@ -24,7 +24,7 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <Flame className="h-5 w-5 text-amber-dark" strokeWidth={1.5} />
             <span className="font-display text-xl font-semibold">
-              Wick &amp; Bloom
+              AromaFlame Candles
             </span>
           </div>
           <p className="max-w-xs text-sm text-ink-soft">
@@ -35,11 +35,11 @@ export function Footer() {
         <div className="flex flex-col gap-2 text-sm">
           <span className="font-medium text-ink">Get in touch</span>
           <a
-            href="mailto:hello@wickandbloom.com"
+            href="mailto:hello@aromaflamecandles.com"
             className="flex items-center gap-2 text-ink-soft hover:text-amber-dark"
           >
             <Mail className="h-4 w-4" />
-            hello@wickandbloom.com
+            hello@aromaflamecandles.com
           </a>
           <a
             href="https://instagram.com"
@@ -48,12 +48,12 @@ export function Footer() {
             className="flex items-center gap-2 text-ink-soft hover:text-amber-dark"
           >
             <InstagramIcon />
-            @wickandbloom
+            @aromaflamecandles
           </a>
         </div>
       </div>
       <div className="border-t border-ink/10 py-4 text-center text-xs text-ink-soft">
-        © {new Date().getFullYear()} Wick & Bloom. All rights reserved.
+        © {new Date().getFullYear()} AromaFlame Candles. All rights reserved.
       </div>
     </footer>
   );
