@@ -4,9 +4,9 @@ import { Flame, ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/shop", label: "Shop" },
-  { to: "/#contact", label: "Contact" },
+  { to: "/", label: "Начало" },
+  { to: "/shop", label: "Магазин" },
+  { to: "/#contact", label: "Контакти" },
 ];
 
 export function Navbar({ onCartClick }: { onCartClick: () => void }) {
@@ -43,7 +43,7 @@ export function Navbar({ onCartClick }: { onCartClick: () => void }) {
         <div className="flex items-center gap-2">
           <button
             onClick={onCartClick}
-            aria-label="Open cart"
+            aria-label="Отвори количката"
             className="relative rounded-full p-2 hover:bg-ink/5 cursor-pointer"
           >
             <ShoppingBag className="h-5 w-5" />
@@ -55,7 +55,7 @@ export function Navbar({ onCartClick }: { onCartClick: () => void }) {
           </button>
           <button
             onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label="Меню"
             className="rounded-full p-2 hover:bg-ink/5 sm:hidden cursor-pointer"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

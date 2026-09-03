@@ -3,6 +3,7 @@ import { X, Plus } from "lucide-react";
 import type { Product } from "../types";
 import { ProductArt } from "./ProductArt";
 import { useCart } from "../context/CartContext";
+import { formatPrice } from "../format";
 
 export function ProductModal({
   product,
@@ -34,7 +35,7 @@ export function ProductModal({
       >
         <button
           onClick={onClose}
-          aria-label="Close"
+          aria-label="Затвори"
           className="absolute right-3 top-3 z-10 rounded-full bg-white/70 p-1.5 text-ink hover:bg-white cursor-pointer"
         >
           <X className="h-5 w-5" />
@@ -53,7 +54,7 @@ export function ProductModal({
           </div>
           <div className="mt-2 flex items-center justify-between">
             <span className="font-display text-3xl text-amber-dark">
-              ${product.price}
+              {formatPrice(product.price)}
             </span>
             <button
               onClick={() => {
@@ -63,7 +64,7 @@ export function ProductModal({
               className="flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition hover:bg-amber-dark cursor-pointer"
             >
               <Plus className="h-4 w-4" />
-              Add to cart
+              Добави в количката
             </button>
           </div>
         </div>

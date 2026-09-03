@@ -11,12 +11,13 @@ export function Shop() {
     <section className="mx-auto max-w-6xl px-5 py-16">
       <div className="mb-10 flex flex-col gap-2 text-center">
         <span className="text-xs font-medium uppercase tracking-widest text-amber-dark">
-          The Collection
+          Колекцията
         </span>
-        <h1 className="text-5xl font-semibold text-ink">Shop All Candles</h1>
+        <h1 className="text-5xl font-semibold text-ink">Пазарувай всички свещи</h1>
         <p className="mx-auto max-w-xl text-ink-soft">
-          Six scents, all hand-poured with 100% soy wax. Tap a candle to see
-          details, or add it straight to your cart.
+          Ръчно изработени букети от соеви восъчни цветя — за рожден ден,
+          дипломиране или просто за подарък. Докосни свещ, за да видиш
+          детайли, или я добави направо в количката.
         </p>
       </div>
 

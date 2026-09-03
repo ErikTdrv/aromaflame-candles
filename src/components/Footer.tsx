@@ -28,12 +28,12 @@ export function Footer() {
             </span>
           </div>
           <p className="max-w-xs text-sm text-ink-soft">
-            Hand-poured soy candles, made in small batches with love.
+            Ръчно изработени соеви свещи, направени на малки партиди с любов.
           </p>
         </div>
 
         <div className="flex flex-col gap-2 text-sm">
-          <span className="font-medium text-ink">Get in touch</span>
+          <span className="font-medium text-ink">Свържете се с нас</span>
           <a
             href="mailto:hello@aromaflamecandles.com"
             className="flex items-center gap-2 text-ink-soft hover:text-amber-dark"
@@ -53,7 +53,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-ink/10 py-4 text-center text-xs text-ink-soft">
-        © {new Date().getFullYear()} AromaFlame Candles. All rights reserved.
+        © {new Date().getFullYear()} AromaFlame Candles. Всички права запазени.
       </div>
     </footer>
   );

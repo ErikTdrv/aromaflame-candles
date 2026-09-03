@@ -1,6 +1,7 @@
 import { X, Minus, Plus, Trash2 } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { ProductArt } from "./ProductArt";
+import { formatPrice } from "../format";
 
 export function CartDrawer({
   open,
@@ -25,10 +26,10 @@ export function CartDrawer({
         }`}
       >
         <div className="flex items-center justify-between border-b border-ink/10 p-5">
-          <h2 className="text-2xl font-semibold">Your Cart</h2>
+          <h2 className="text-2xl font-semibold">Твоята количка</h2>
           <button
             onClick={onClose}
-            aria-label="Close cart"
+            aria-label="Затвори количката"
             className="rounded-full p-1.5 hover:bg-ink/5 cursor-pointer"
           >
             <X className="h-5 w-5" />
@@ -38,7 +39,7 @@ export function CartDrawer({
         <div className="flex-1 overflow-y-auto p-5">
           {items.length === 0 ? (
             <p className="mt-10 text-center text-ink-soft">
-              Your cart is empty.
+              Количката ви е празна.
             </p>
           ) : (
             <ul className="flex flex-col gap-4">
@@ -53,14 +54,14 @@ export function CartDrawer({
                       <span className="font-medium">{item.product.name}</span>
                       <button
                         onClick={() => removeItem(item.product.id)}
-                        aria-label="Remove item"
+                        aria-label="Премахни артикул"
                         className="text-ink-soft hover:text-amber-dark cursor-pointer"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </div>
                     <span className="text-sm text-ink-soft">
-                      ${item.product.price} each
+                      {formatPrice(item.product.price)} на брой
                     </span>
                     <div className="mt-1 flex items-center gap-2">
                       <button
@@ -93,29 +94,33 @@ export function CartDrawer({
         {items.length > 0 && (
           <div className="border-t border-ink/10 p-5">
             <div className="mb-4 flex items-center justify-between text-lg">
-              <span className="text-ink-soft">Total</span>
+              <span className="text-ink-soft">Общо</span>
               <span className="font-display text-2xl text-amber-dark">
-                ${totalPrice.toFixed(2)}
+                {formatPrice(totalPrice)}
               </span>
             </div>
             <a
               href={`mailto:hello@aromaflamecandles.com?subject=${encodeURIComponent(
-                "Candle order"
+                "Поръчка на свещи"
               )}&body=${encodeURIComponent(
-                "Hi! I'd like to order:\n\n" +
+                "Здравейте! Искам да поръчам:\n\n" +
                   items
                     .map(
-                      (i) => `- ${i.product.name} x${i.quantity} ($${i.product.price} each)`
+                      (i) =>
+                        `- ${i.product.name} x${i.quantity} (${formatPrice(
+                          i.product.price
+                        )} на брой)`
                     )
                     .join("\n") +
-                  `\n\nTotal: $${totalPrice.toFixed(2)}`
+                  `\n\nОбщо: ${formatPrice(totalPrice)}`
               )}`}
               className="block w-full rounded-full bg-ink py-3 text-center font-medium text-cream transition hover:bg-amber-dark"
             >
-              Send order request
+              Изпрати заявка за поръчка
             </a>
             <p className="mt-2 text-center text-xs text-ink-soft">
-              No online checkout yet — this sends your order by email.
+              Все още няма онлайн разплащане — това изпраща поръчката ви по
+              имейл.
             </p>
           </div>
         )}

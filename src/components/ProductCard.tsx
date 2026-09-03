@@ -1,6 +1,7 @@
 import type { Product } from "../types";
 import { ProductArt } from "./ProductArt";
 import { useCart } from "../context/CartContext";
+import { formatPrice } from "../format";
 import { Plus } from "lucide-react";
 
 export function ProductCard({
@@ -27,14 +28,14 @@ export function ProductCard({
         <p className="text-sm text-ink-soft">{product.scentNotes}</p>
         <div className="mt-3 flex items-center justify-between">
           <span className="font-display text-2xl text-amber-dark">
-            ${product.price}
+            {formatPrice(product.price)}
           </span>
           <button
             onClick={() => addItem(product)}
             className="flex items-center gap-1 rounded-full bg-ink px-4 py-2 text-sm font-medium text-cream transition hover:bg-amber-dark cursor-pointer"
           >
             <Plus className="h-4 w-4" />
-            Add
+            Добави
           </button>
         </div>
       </div>

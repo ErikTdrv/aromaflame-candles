@@ -7,6 +7,7 @@ export interface Product {
   burnTime: string;
   description: string;
   accent: [string, string];
+  image: string;
 }
 
 export interface CartItem {
