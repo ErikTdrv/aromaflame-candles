@@ -1,17 +1,18 @@
 import { useMemo, useState } from "react";
-import { products } from "../data/products";
+import { useProducts } from "../context/ProductsContext";
 import { ProductCard } from "../components/ProductCard";
 import { ProductModal } from "../components/ProductModal";
 import { Reveal } from "../components/Reveal";
 import type { Product } from "../types";
 
 export function Shop() {
+  const { products } = useProducts();
   const [selected, setSelected] = useState<Product | null>(null);
   const [filter, setFilter] = useState<string>("Всички");
 
   const occasions = useMemo(
     () => ["Всички", ...Array.from(new Set(products.map((p) => p.occasion)))],
-    []
+    [products]
   );
 
   const filtered =

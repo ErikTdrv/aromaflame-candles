@@ -1,6 +1,7 @@
-import { products } from "../data/products";
+import { useProducts } from "../context/ProductsContext";
 
 export function GalleryStrip() {
+  const { products } = useProducts();
   const items = [...products, ...products];
 
   return (

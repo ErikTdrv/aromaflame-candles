@@ -1,5 +1,12 @@
-import { useEffect } from "react";
-import { X, Plus, Package, Flame } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  X,
+  Plus,
+  Package,
+  Flame,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import type { Product } from "../types";
 import { ProductArt } from "./ProductArt";
 import { useCart } from "../context/CartContext";
@@ -13,16 +20,25 @@ export function ProductModal({
   onClose: () => void;
 }) {
   const { addItem } = useCart();
+  const photos = product.images?.length ? product.images : [product.image];
+  const [index, setIndex] = useState(0);
+  const count = photos.length;
+  const current = photos[Math.min(index, count - 1)];
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (count > 1 && e.key === "ArrowRight") setIndex((i) => (i + 1) % count);
+      if (count > 1 && e.key === "ArrowLeft")
+        setIndex((i) => (i - 1 + count) % count);
+    };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [onClose, count]);
 
   return (
     <div
@@ -42,10 +58,56 @@ export function ProductModal({
         </button>
 
         <div className="relative aspect-square overflow-hidden sm:aspect-auto sm:h-full sm:min-h-[26rem]">
-          <div className="absolute inset-0 [animation:image-in_500ms_cubic-bezier(0.16,1,0.3,1)]">
-            <ProductArt product={product} className="h-full w-full" />
+          <div
+            key={current}
+            className="absolute inset-0 [animation:image-in_500ms_cubic-bezier(0.16,1,0.3,1)]"
+          >
+            <ProductArt
+              product={{ ...product, image: current }}
+              className="h-full w-full"
+            />
           </div>
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent sm:bg-gradient-to-r" />
+
+          {count > 1 && (
+            <>
+              <button
+                onClick={() => setIndex((i) => (i - 1 + count) % count)}
+                aria-label="Предишна снимка"
+                className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white/80 p-2 text-ink shadow-sm backdrop-blur-sm transition hover:scale-110 hover:bg-white"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={() => setIndex((i) => (i + 1) % count)}
+                aria-label="Следваща снимка"
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white/80 p-2 text-ink shadow-sm backdrop-blur-sm transition hover:scale-110 hover:bg-white"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+              <div className="no-scrollbar absolute inset-x-0 bottom-3 flex justify-center gap-2 overflow-x-auto px-3">
+                {photos.map((url, i) => (
+                  <button
+                    key={url}
+                    onClick={() => setIndex(i)}
+                    aria-label={`Снимка ${i + 1} от ${count}`}
+                    aria-current={i === index}
+                    className={`h-12 w-12 shrink-0 cursor-pointer overflow-hidden rounded-lg ring-2 transition ${
+                      i === index
+                        ? "ring-white"
+                        : "opacity-70 ring-white/40 hover:opacity-100"
+                    }`}
+                  >
+                    <img
+                      src={url}
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="flex flex-col justify-center gap-4 p-8 sm:p-10">

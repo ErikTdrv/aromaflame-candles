@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Leaf, Heart, Sparkles, Lightbulb, Flower2, Layers, Gift, Flame } from "lucide-react";
-import { products } from "../data/products";
+import { products as fallbackProducts } from "../data/products";
+import { useProducts } from "../context/ProductsContext";
 import { ProductCard } from "../components/ProductCard";
 import { ProductModal } from "../components/ProductModal";
 import { GalleryStrip } from "../components/GalleryStrip";
@@ -50,9 +51,10 @@ const steps = [
 ];
 
 export function Home() {
+  const { products } = useProducts();
   const [selected, setSelected] = useState<Product | null>(null);
   const featured = products.slice(0, 3);
-  const heroProduct = products[0];
+  const heroProduct = products[0] ?? fallbackProducts[0];
 
   return (
     <>

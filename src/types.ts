@@ -8,6 +8,8 @@ export interface Product {
   description: string;
   accent: [string, string];
   image: string;
+  /** All photos, cover first. Missing on older cached data. */
+  images?: string[];
   occasion: string;
   badge?: string;
 }

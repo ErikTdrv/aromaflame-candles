@@ -1,32 +1,40 @@
-# React + TypeScript + Vite
+# AromaFlame Candles
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Online shop for AromaFlame Candles — handmade soy wax flower bouquets.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Storefront with product catalogue, occasion filter, photo gallery and cart
+- Order form (cash on delivery) that saves orders to the database
+- Admin area at `/admin` for managing orders and products, including
+  multi-photo upload with in-browser image compression
+- Site content in Bulgarian, prices in EUR
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19, TypeScript, Vite, Tailwind CSS 4
+- Supabase for the database, photo storage and admin login
+- Hosted on Vercel
 
-## Expanding the Oxlint configuration
+## Development
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The site runs at http://localhost:5173.
+
+Other scripts: `npm run build` (type-check and production build),
+`npm run lint`.
+
+## Database setup
+
+Run [`supabase/setup.sql`](supabase/setup.sql) in the Supabase SQL Editor. It
+creates the tables, row level security rules and the photo bucket, and is safe
+to run more than once. Visitors can only read active products and place new
+orders; everything else requires an admin login.
+
+The Supabase URL and publishable key in `src/lib/supabase.ts` are public by
+design. They can be overridden with `VITE_SUPABASE_URL` and
+`VITE_SUPABASE_KEY`.
